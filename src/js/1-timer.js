@@ -13,6 +13,8 @@ const timerSeconds = document.querySelector('span[data-seconds]');
 
 startBtn.addEventListener('click', onClickStartTimer);
 
+disableBtn();
+
 let userSelectedDate = '';
 let intervalId = '';
 
@@ -47,7 +49,11 @@ function calculateTimeLeft() {
   const currentDateMs = new Date().getTime();
   const selectedDateMS = new Date(userSelectedDate).getTime();
   const ms = selectedDateMS - currentDateMs;
-  changeElementDayTimeValue(ms);
+  if (ms >= 0) {
+    changeElementDayTimeValue(ms);
+  } else {
+    clearInterval(intervalId);
+  }
 }
 
 function changeElementDayTimeValue(ms) {
