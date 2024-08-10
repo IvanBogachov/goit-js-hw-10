@@ -87,7 +87,7 @@ function addErrorMessage() {
     backgroundColor: '#ef4040',
     message: 'Please choose a date in the future',
     messageColor: 'white',
-    messageSize: '20',
+    messageSize: '16',
     position: 'topRight',
     close: true,
     displayMode: 2,
